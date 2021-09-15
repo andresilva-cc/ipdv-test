@@ -22,6 +22,20 @@ class CostCenterController {
       return next(error);
     }
   }
+
+  public static async update(request: Request, response: Response, next: NextFunction) {
+    try {
+      const costCenter = await CostCenterController.costCenterService.update(
+        parseInt(request.params.id, 10),
+        {
+          name: request.body.name,
+        },
+      );
+      return response.status(200).send(costCenter);
+    } catch (error) {
+      return next(error);
+    }
+  }
 }
 
 export default CostCenterController;

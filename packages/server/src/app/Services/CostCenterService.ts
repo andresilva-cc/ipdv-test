@@ -15,6 +15,10 @@ class CostCenterService {
       name,
     });
   }
+
+  public async update(id: number, data: any): Promise<CostCenter> {
+    return this.costCenterRepository.update(id, data);
+  }
 }
 
 export default CostCenterService;

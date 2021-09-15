@@ -69,6 +69,11 @@ export default {
           icon: 'mdi-currency-usd',
           title: this.$t('section.costCenters.title'),
           to: '/cost-centers'
+        },
+        {
+          icon: 'mdi-family-tree',
+          title: this.$t('section.departments.title'),
+          to: '/departments'
         }
       ]
     }

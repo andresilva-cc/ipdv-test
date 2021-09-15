@@ -16,6 +16,7 @@
     }
   },
   "field": {
+    "costCenter": "Centro de Custo",
     "id": "Código",
     "name": "Nome",
     "search": "Pesquisar"
@@ -29,7 +30,11 @@
       "title": "Centros de Custo",
       "create": "Criar Centro de Custo",
       "update": "Atualizar Centro de Custo"
-
+    },
+    "departments": {
+      "title": "Departamentos",
+      "create": "Criar Departamento",
+      "update": "Atualizar Departamento"
     }
   }
 }

@@ -1,6 +1,6 @@
 import BaseRepository from './BaseRepository';
 
-interface UserRepository extends BaseRepository {
+interface CostCenterRepository extends BaseRepository {
 }
 
-export default UserRepository;
+export default CostCenterRepository;

@@ -19,6 +19,10 @@ class CostCenterService {
   public async update(id: number, data: any): Promise<CostCenter> {
     return this.costCenterRepository.update(id, data);
   }
+
+  public async delete(id: number): Promise<boolean> {
+    return this.costCenterRepository.delete(id);
+  }
 }
 
 export default CostCenterService;

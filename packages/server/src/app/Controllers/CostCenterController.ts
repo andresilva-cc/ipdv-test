@@ -36,6 +36,17 @@ class CostCenterController {
       return next(error);
     }
   }
+
+  public static async delete(request: Request, response: Response, next: NextFunction) {
+    try {
+      await CostCenterController.costCenterService.delete(
+        parseInt(request.params.id, 10),
+      );
+      return response.sendStatus(200);
+    } catch (error) {
+      return next(error);
+    }
+  }
 }
 
 export default CostCenterController;

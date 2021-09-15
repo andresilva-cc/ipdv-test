@@ -12,10 +12,10 @@
       <v-list subheader>
         <v-list-item class="px-2 pt-2 user-info">
           <v-list-item-avatar>
-            <v-img src="/user.png" />
+            <v-img src="/user.png" class="py-3" />
           </v-list-item-avatar>
-          <v-list-item-content>
-            <v-list-item-title class=" font-weight-bold white--text">
+          <v-list-item-content class="pa-0">
+            <v-list-item-title class="font-weight-bold white--text">
               Usuário
             </v-list-item-title>
             <v-list-item-subtitle class="white--text">

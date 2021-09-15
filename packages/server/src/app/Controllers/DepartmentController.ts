@@ -7,8 +7,8 @@ class DepartmentController {
 
   public static async all(_request: Request, response: Response, next: NextFunction) {
     try {
-      const costCenters = await DepartmentController.departmentService.all();
-      return response.status(200).send(costCenters);
+      const departments = await DepartmentController.departmentService.all();
+      return response.status(200).send(departments);
     } catch (error) {
       return next(error);
     }

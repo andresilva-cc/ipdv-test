@@ -1,12 +1,20 @@
+// Vuetify
 import colors from 'vuetify/es5/util/colors'
+import pt from 'vuetify/es5/locale/pt'
+
+// i18n
+import ptBR from './locales/ptBR.json'
 
 export default {
+  server: {
+    port: process.env.PORT || 3000
+  },
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    titleTemplate: '%s - ipdv-test-client',
-    title: 'ipdv-test-client',
+    titleTemplate: '%s - IPDV Test',
+    title: 'IPDV Test',
     htmlAttrs: {
-      lang: 'en'
+      lang: 'pt'
     },
     meta: [
       { charset: 'utf-8' },
@@ -41,26 +49,44 @@ export default {
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
     // https://go.nuxtjs.dev/axios
-    '@nuxtjs/axios'
+    '@nuxtjs/axios',
+    '@nuxtjs/i18n'
   ],
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
-  axios: {},
+  axios: {
+    baseURL: process.env.API_URL
+  },
+
+  i18n: {
+    locales: ['ptBR'],
+    defaultLocale: 'ptBR',
+    vueI18n: {
+      fallbackLocale: 'ptBR',
+      messages: {
+        ptBR
+      }
+    }
+  },
 
   // Vuetify module configuration: https://go.nuxtjs.dev/config-vuetify
   vuetify: {
+    lang: {
+      locales: { pt },
+      current: 'pt'
+    },
     customVariables: ['~/assets/variables.scss'],
     theme: {
-      dark: true,
+      dark: false,
       themes: {
-        dark: {
-          primary: colors.blue.darken2,
-          accent: colors.grey.darken3,
-          secondary: colors.amber.darken3,
-          info: colors.teal.lighten1,
+        light: {
+          primary: colors.amber.darken1,
+          accent: colors.amber.darken3,
+          secondary: colors.blueGrey.lighten1,
+          info: colors.blue.base,
           warning: colors.amber.base,
-          error: colors.deepOrange.accent4,
-          success: colors.green.accent3
+          error: colors.red.base,
+          success: colors.green.base
         }
       }
     }

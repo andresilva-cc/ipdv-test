@@ -1,0 +1,168 @@
+<template>
+  <v-row justify="center" align="center" no-gutters>
+    <v-col cols="12">
+      <v-card outlined>
+        <v-card-title>
+          {{ $t('section.costCenters.title') }}
+          <v-spacer />
+          <v-col
+            class="pa-0"
+            cols="12"
+            sm="6"
+            md="4"
+            lg="3"
+            xl="2"
+          >
+            <v-text-field
+              v-model="search"
+              hide-details
+              clearable
+              append-icon="mdi-magnify"
+              :label="$t('field.search')"
+            />
+          </v-col>
+        </v-card-title>
+        <v-card-text>
+          <v-btn
+            small
+            rounded
+            depressed
+            color="primary"
+            class="mb-3"
+            nuxt
+            to="/cost-centers/create"
+          >
+            <v-icon left>
+              mdi-plus
+            </v-icon>
+            {{ $t('common.create') }}
+          </v-btn>
+          <v-data-table
+            :loading="loading"
+            locale="pt-BR"
+            :headers="headers"
+            :items="costCenters"
+            :search="search"
+            :footer-props="{
+              'items-per-page-options': [5, 10, 15, 25, 50]
+            }"
+            :items-per-page="10"
+          >
+            <template #[`item.actions`]="{ item }">
+              <v-tooltip bottom>
+                <template #activator="{ on, attrs }">
+                  <v-btn
+                    icon
+                    x-small
+                    class="mr-2"
+                    nuxt
+                    :to="`/cost-centers/update/${item.id}`"
+                    v-bind="attrs"
+                    v-on="on"
+                  >
+                    <v-icon>
+                      mdi-pencil
+                    </v-icon>
+                  </v-btn>
+                </template>
+                <span>{{ $t('common.update') }}</span>
+              </v-tooltip>
+              <v-tooltip bottom>
+                <template #activator="{ on, attrs }">
+                  <v-btn
+                    icon
+                    x-small
+                    nuxt
+                    v-bind="attrs"
+                    v-on="on"
+                    @click="openDeleteDialog(item)"
+                  >
+                    <v-icon>
+                      mdi-delete
+                    </v-icon>
+                  </v-btn>
+                </template>
+                <span>{{ $t('common.delete') }}</span>
+              </v-tooltip>
+            </template>
+          </v-data-table>
+        </v-card-text>
+      </v-card>
+    </v-col>
+
+    <v-dialog v-model="dialog" persistent max-width="360">
+      <v-card>
+        <v-card-title class="headline">
+          {{ $t('dialog.delete.title') }}
+        </v-card-title>
+        <v-card-text>{{ $t('dialog.delete.description') }}</v-card-text>
+        <v-card-actions>
+          <v-spacer />
+          <v-btn text :disabled="loading" @click="dialog = false">
+            {{ $t('common.cancel') }}
+          </v-btn>
+          <v-btn color="red" text :disabled="loading" :loading="loading" @click="deleteItem">
+            {{ $t('common.confirm') }}
+          </v-btn>
+        </v-card-actions>
+      </v-card>
+    </v-dialog>
+  </v-row>
+</template>
+
+<script>
+export default {
+  data () {
+    return {
+      search: '',
+      loading: false,
+      dialog: false,
+      deleteId: 0,
+
+      headers: [
+        { text: this.$t('field.id'), value: 'id' },
+        { text: this.$t('field.name'), value: 'name' },
+        { text: this.$t('common.actions'), value: 'actions' }
+      ]
+    }
+  },
+
+  head () {
+    return {
+      title: this.$t('section.costCenters.title')
+    }
+  },
+
+  computed: {
+    costCenters () {
+      return this.$store.getters['costCenters/get']
+    }
+  },
+
+  async created () {
+    try {
+      this.loading = true
+      await this.$store.dispatch('costCenters/fetch')
+    } finally {
+      this.loading = false
+    }
+  },
+
+  methods: {
+    openDeleteDialog (item) {
+      this.deleteId = item.id
+      this.dialog = true
+    },
+
+    async deleteItem () {
+      try {
+        this.loading = true
+        await this.$store.dispatch('costCenters/delete', this.deleteId)
+      } finally {
+        this.dialog = false
+        this.loading = false
+      }
+    }
+  }
+}
+</script>

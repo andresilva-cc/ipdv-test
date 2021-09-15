@@ -1,14 +1,25 @@
 module.exports = {
-  plugins: ['jest'],
-  extends: [
-    'airbnb-typescript/base',
-    'plugin:jest/recommended',
-  ],
-  parserOptions: {
-    project: './tsconfig.json',
+  env: {
+    es2021: true,
+    node: true,
   },
+  extends: [
+    'airbnb-base',
+    'airbnb-typescript/base',
+  ],
+  parser: '@typescript-eslint/parser',
+  parserOptions: {
+    ecmaVersion: 12,
+    sourceType: 'module',
+    tsconfigRootDir: __dirname,
+    project: './tsconfig.json'
+  },
+  plugins: [
+    '@typescript-eslint',
+  ],
+  ignorePatterns: [
+    '.eslintrc.js'
+  ],
   rules: {
-    "no-throw-literal": 'off',
-    "@typescript-eslint/no-throw-literal": 'off'
-  }
+  },
 };

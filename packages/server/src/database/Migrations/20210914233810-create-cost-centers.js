@@ -8,19 +8,24 @@ module.exports = {
    * @param {Sequelize.QueryInterface} queryInterface
    * @param {Sequelize.DataTypes} types
    */
-  up: async (queryInterface, types) => queryInterface.createTable('UserActivations', {
-    userId: {
+  up: async (queryInterface, types) => queryInterface.createTable('CostCenters', {
+    id: {
       allowNull: false,
+      autoIncrement: true,
       primaryKey: true,
       type: types.INTEGER,
-      references: {
-        model: 'Users',
-        key: 'id',
-      },
     },
-    token: {
+    name: {
       allowNull: false,
-      type: types.CHAR(21),
+      type: types.STRING(50),
+    },
+    createdAt: {
+      allowNull: false,
+      type: types.DATE,
+    },
+    updatedAt: {
+      allowNull: false,
+      type: types.DATE,
     },
   }),
 
@@ -29,5 +34,5 @@ module.exports = {
    *
    * @param {Sequelize.QueryInterface} queryInterface
    */
-  down: async (queryInterface) => queryInterface.dropTable('UserActivations'),
+  down: async (queryInterface) => queryInterface.dropTable('CostCenters'),
 };

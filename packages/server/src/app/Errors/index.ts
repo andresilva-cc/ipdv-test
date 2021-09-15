@@ -1,6 +1,5 @@
 /* eslint-disable import/prefer-default-export */
 
-export { default as AccountNotActivatedError } from './AccountNotActivatedError';
 export { default as BadRequestError } from './BadRequestError';
 export { default as EmailAlreadyInUseError } from './EmailAlreadyInUseError';
 export { default as ForbiddenError } from './ForbiddenError';

@@ -1,0 +1,32 @@
+{
+  "common": {
+    "actions": "Ações",
+    "cancel": "Cancelar",
+    "confirm": "Confirmar",
+    "create": "Criar",
+    "delete": "Excluir",
+    "no": "Não",
+    "update": "Atualizar",
+    "yes": "Sim"
+  },
+  "dialog": {
+    "delete": {
+      "title": "Confirmar exclusão?",
+      "description": "Se você confirmar, este registro será excluído permanentemente."
+    }
+  },
+  "field": {
+    "id": "Código",
+    "name": "Nome",
+    "search": "Pesquisar"
+  },
+  "section": {
+    "home": {
+      "title": "Início",
+      "description": "Bem-vindo! Utilize o menu ao lado para navegar no sistema."
+    },
+    "costCenters": {
+      "title": "Centros de Custo"
+    }
+  }
+}

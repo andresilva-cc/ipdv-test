@@ -1,8 +1,8 @@
 import { Express } from 'express';
-import auth from './auth';
+import costCenter from './costCenter';
 
 const routes = [
-  auth,
+  costCenter,
 ];
 
 function registerRoutes(application: Express) {

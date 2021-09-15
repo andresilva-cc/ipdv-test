@@ -1,16 +1,13 @@
 import BaseError from './BaseError';
 import {
-  AccountNotActivatedError, BadRequestError, EmailAlreadyInUseError, ForbiddenError,
-  InvalidCredentialsError, ResourceNotFoundError, ServiceUnavailableError, ValidationError,
-  UnauthorizedError, UnknownError,
+  BadRequestError, EmailAlreadyInUseError, ForbiddenError, InvalidCredentialsError,
+  ResourceNotFoundError, ServiceUnavailableError, ValidationError, UnauthorizedError,
+  UnknownError,
 } from '.';
 
 class ErrorParser {
   public static parse(error: any): BaseError {
     switch (error.name) {
-      case 'AccountNotActivatedError':
-        return new AccountNotActivatedError();
-
       case 'BadRequestError':
         return new BadRequestError(error.name, error.stack);
 

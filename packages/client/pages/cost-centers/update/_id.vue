@@ -85,7 +85,7 @@ export default {
 
   head () {
     return {
-      title: this.$t('section.costCenters.create')
+      title: this.$t('section.costCenters.update')
     }
   },
 

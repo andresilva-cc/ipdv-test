@@ -85,7 +85,7 @@ export default {
 
   head () {
     return {
-      title: this.$t('section.positions.create')
+      title: this.$t('section.positions.update')
     }
   },
 

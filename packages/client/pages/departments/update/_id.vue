@@ -103,7 +103,7 @@ export default {
 
   head () {
     return {
-      title: this.$t('section.departments.create')
+      title: this.$t('section.departments.update')
     }
   },
 

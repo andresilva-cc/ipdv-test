@@ -3,7 +3,7 @@
     <v-col cols="12">
       <v-card outlined>
         <v-card-title>
-          {{ $t('section.costCenters.update') }}
+          {{ $t('section.positions.update') }}
         </v-card-title>
         <v-card-text>
           <v-form v-model="valid">
@@ -32,7 +32,7 @@
                 color="secondary"
                 class="mb-3 mr-2"
                 nuxt
-                to="/cost-centers"
+                to="/positions"
               >
                 {{ $t('common.cancel') }}
               </v-btn>
@@ -85,13 +85,13 @@ export default {
 
   head () {
     return {
-      title: this.$t('section.costCenters.create')
+      title: this.$t('section.positions.create')
     }
   },
 
   computed: {
-    costCenter () {
-      return this.$store.getters['costCenters/getById'](Number.parseInt(this.$route.params.id))
+    position () {
+      return this.$store.getters['positions/getById'](Number.parseInt(this.$route.params.id))
     }
   },
 
@@ -99,9 +99,9 @@ export default {
     try {
       this.loading = true
 
-      await this.$store.dispatch('costCenters/fetch')
+      await this.$store.dispatch('positions/fetch')
 
-      this.data.name = this.costCenter.name
+      this.data.name = this.position.name
     } finally {
       this.loading = false
     }
@@ -112,13 +112,13 @@ export default {
       try {
         this.loading = true
 
-        await this.$store.dispatch('costCenters/update', {
+        await this.$store.dispatch('positions/update', {
           id: this.$route.params.id,
           data: this.data
         })
 
         this.$router.push({
-          path: '/cost-centers'
+          path: '/positions'
         })
       } finally {
         this.loading = false

@@ -35,6 +35,11 @@
       "title": "Departamentos",
       "create": "Criar Departamento",
       "update": "Atualizar Departamento"
+    },
+    "positions": {
+      "title": "Cargos",
+      "create": "Criar Cargo",
+      "update": "Atualizar Cargo"
     }
   }
 }

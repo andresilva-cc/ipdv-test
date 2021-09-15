@@ -5,8 +5,8 @@ export const state = () => ({
 export const getters = {
   get: state => state.costCenters,
 
-  getById: state => id => state.costCenters.filter(exercise =>
-    exercise.id === id
+  getById: state => id => state.costCenters.filter(costCenter =>
+    costCenter.id === id
   )[0]
 }
 

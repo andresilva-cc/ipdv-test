@@ -74,6 +74,11 @@ export default {
           icon: 'mdi-family-tree',
           title: this.$t('section.departments.title'),
           to: '/departments'
+        },
+        {
+          icon: 'mdi-briefcase-account-outline',
+          title: this.$t('section.positions.title'),
+          to: '/positions'
         }
       ]
     }

@@ -3,7 +3,7 @@
     <v-col cols="12">
       <v-card outlined>
         <v-card-title>
-          {{ $t('section.costCenters.update') }}
+          {{ $t('section.positions.create') }}
         </v-card-title>
         <v-card-text>
           <v-form v-model="valid">
@@ -32,7 +32,7 @@
                 color="secondary"
                 class="mb-3 mr-2"
                 nuxt
-                to="/cost-centers"
+                to="/positions"
               >
                 {{ $t('common.cancel') }}
               </v-btn>
@@ -43,12 +43,12 @@
                 class="mb-3 mr-2"
                 :loading="loading"
                 :disabled="loading || !valid"
-                @click="update"
+                @click="create"
               >
                 <v-icon left>
                   mdi-check
                 </v-icon>
-                {{ $t('common.update') }}
+                {{ $t('common.create') }}
               </v-btn>
             </v-col>
           </v-row>
@@ -60,11 +60,6 @@
 
 <script>
 export default {
-  validate ({ params }) {
-    // Must be a number
-    return /^\d+$/.test(params.id)
-  },
-
   data () {
     return {
       loading: false,
@@ -85,40 +80,19 @@ export default {
 
   head () {
     return {
-      title: this.$t('section.costCenters.create')
-    }
-  },
-
-  computed: {
-    costCenter () {
-      return this.$store.getters['costCenters/getById'](Number.parseInt(this.$route.params.id))
-    }
-  },
-
-  async mounted () {
-    try {
-      this.loading = true
-
-      await this.$store.dispatch('costCenters/fetch')
-
-      this.data.name = this.costCenter.name
-    } finally {
-      this.loading = false
+      title: this.$t('section.positions.create')
     }
   },
 
   methods: {
-    async update () {
+    async create () {
       try {
         this.loading = true
 
-        await this.$store.dispatch('costCenters/update', {
-          id: this.$route.params.id,
-          data: this.data
-        })
+        await this.$store.dispatch('positions/create', this.data)
 
         this.$router.push({
-          path: '/cost-centers'
+          path: '/positions'
         })
       } finally {
         this.loading = false

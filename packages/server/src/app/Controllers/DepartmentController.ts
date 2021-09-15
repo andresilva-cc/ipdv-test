@@ -16,11 +16,11 @@ class DepartmentController {
 
   public static async create(request: Request, response: Response, next: NextFunction) {
     try {
-      const costCenter = await DepartmentController.departmentService.create(
+      const department = await DepartmentController.departmentService.create(
         request.body.name,
         parseInt(request.body.costCenterId, 10) || 0,
       );
-      return response.status(201).send(costCenter);
+      return response.status(201).send(department);
     } catch (error) {
       return next(error);
     }
@@ -28,14 +28,14 @@ class DepartmentController {
 
   public static async update(request: Request, response: Response, next: NextFunction) {
     try {
-      const costCenter = await DepartmentController.departmentService.update(
+      const department = await DepartmentController.departmentService.update(
         parseInt(request.params.id, 10),
         {
           name: request.body.name,
           costCenterId: parseInt(request.body.costCenterId, 10),
         },
       );
-      return response.status(200).send(costCenter);
+      return response.status(200).send(department);
     } catch (error) {
       return next(error);
     }

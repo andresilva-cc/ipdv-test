@@ -1,6 +1,6 @@
 
-# Created by https://www.toptal.com/developers/gitignore/api/node,vue,vuejs,nuxt,nuxtjs,windows,linux,macos
-# Edit at https://www.toptal.com/developers/gitignore?templates=node,vue,vuejs,nuxt,nuxtjs,windows,linux,macos
+# Created by https://www.toptal.com/developers/gitignore/api/vue,vuejs,nuxt,nuxtjs,node,windows,linux,macos
+# Edit at https://www.toptal.com/developers/gitignore?templates=vue,vuejs,nuxt,nuxtjs,node,windows,linux,macos
 
 ### Linux ###
 *~
@@ -228,4 +228,4 @@ $RECYCLE.BIN/
 # Windows shortcuts
 *.lnk
 
-# End of https://www.toptal.com/developers/gitignore/api/node,vue,vuejs,nuxt,nuxtjs,windows,linux,macos
+# End of https://www.toptal.com/developers/gitignore/api/vue,vuejs,nuxt,nuxtjs,node,windows,linux,macos

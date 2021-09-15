@@ -13,6 +13,15 @@ class CostCenterController {
       return next(error);
     }
   }
+
+  public static async create(request: Request, response: Response, next: NextFunction) {
+    try {
+      const costCenter = await CostCenterController.costCenterService.create(request.body.name);
+      return response.status(201).send(costCenter);
+    } catch (error) {
+      return next(error);
+    }
+  }
 }
 
 export default CostCenterController;

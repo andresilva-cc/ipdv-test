@@ -26,7 +26,10 @@
       "description": "Bem-vindo! Utilize o menu ao lado para navegar no sistema."
     },
     "costCenters": {
-      "title": "Centros de Custo"
+      "title": "Centros de Custo",
+      "create": "Criar Centro de Custo",
+      "update": "Atualizar Centro de Custo"
+
     }
   }
 }

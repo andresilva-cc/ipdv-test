@@ -61,7 +61,7 @@ export default {
       drawer: false,
       items: [
         {
-          icon: 'mdi-home',
+          icon: 'mdi-home-outline',
           title: this.$t('section.home.title'),
           to: '/'
         },
@@ -79,6 +79,11 @@ export default {
           icon: 'mdi-briefcase-account-outline',
           title: this.$t('section.positions.title'),
           to: '/positions'
+        },
+        {
+          icon: 'mdi-account-outline',
+          title: this.$t('section.users.title'),
+          to: '/users'
         }
       ]
     }

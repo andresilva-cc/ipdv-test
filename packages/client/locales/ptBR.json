@@ -17,8 +17,12 @@
   },
   "field": {
     "costCenter": "Centro de Custo",
+    "department": "Departamento",
+    "email": "E-mail",
     "id": "Código",
     "name": "Nome",
+    "password": "Senha",
+    "position": "Cargo",
     "search": "Pesquisar"
   },
   "section": {
@@ -40,6 +44,11 @@
       "title": "Cargos",
       "create": "Criar Cargo",
       "update": "Atualizar Cargo"
+    },
+    "users": {
+      "title": "Usuários",
+      "create": "Criar Usuário",
+      "update": "Atualizar Usuário"
     }
   }
 }

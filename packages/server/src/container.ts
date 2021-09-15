@@ -1,12 +1,21 @@
 import DependencyContainer from './lib/DependencyContainer';
-import { SequelizeCostCenterRepository, SequelizeDepartmentRepository, SequelizePositionRepository } from './app/Repositories/Implementation';
-import { CostCenterService, DepartmentService, PositionService } from './app/Services';
+import {
+  SequelizeCostCenterRepository, SequelizeDepartmentRepository, SequelizePositionRepository,
+  SequelizeUserRepository,
+} from './app/Repositories/Implementation';
+import {
+  CostCenterService, DepartmentService, PositionService, UserService,
+} from './app/Services';
 
 const container = new DependencyContainer();
 
+// Repositories
 container.register('CostCenterRepository', new SequelizeCostCenterRepository());
 container.register('DepartmentRepository', new SequelizeDepartmentRepository());
 container.register('PositionRepository', new SequelizePositionRepository());
+container.register('UserRepository', new SequelizeUserRepository());
+
+// Services
 container.register('CostCenterService', new CostCenterService(
   container.get('CostCenterRepository'),
 ));
@@ -15,6 +24,9 @@ container.register('DepartmentService', new DepartmentService(
 ));
 container.register('PositionService', new PositionService(
   container.get('PositionRepository'),
+));
+container.register('UserService', new UserService(
+  container.get('UserRepository'),
 ));
 
 export default container;

@@ -1,6 +1,6 @@
 import { APP_ENV } from '../../config/app';
 
-abstract class BaseError {
+abstract class BaseError extends Error {
   constructor(
     public code: number,
     public name: string,
@@ -8,7 +8,9 @@ abstract class BaseError {
     public description: string,
     public originalName?: string,
     public stackTrace?: string,
-  ) {}
+  ) {
+    super(description);
+  }
 
   public toPlainObject(): object {
     if (APP_ENV === 'development') {

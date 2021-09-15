@@ -31,7 +31,7 @@ abstract class SequelizeBaseRepository<M extends Model> implements BaseRepositor
 
   public async create(data: any): Promise<M> {
     // @ts-ignore
-    return this.model.create(data);
+    return this.model.create(data) as M;
   }
 
   public async update(id: number, data: any): Promise<M> {

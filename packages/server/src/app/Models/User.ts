@@ -1,10 +1,14 @@
 import {
   Table, Column, Model, CreatedAt, UpdatedAt, Length, AllowNull, ForeignKey, BelongsTo,
-  DefaultScope, IsEmail, Unique,
+  DefaultScope, IsEmail, Unique, Scopes,
 } from 'sequelize-typescript';
 import Position from './Position';
 import Department from './Department';
 
+@Scopes(() => ({
+  withPassword: {
+  },
+}))
 @DefaultScope(() => ({
   attributes: ['id', 'name', 'email', 'positionId', 'departmentId', 'createdAt', 'updatedAt'],
   include: [Position, Department],

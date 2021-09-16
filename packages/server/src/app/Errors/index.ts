@@ -6,6 +6,7 @@ export { default as ForbiddenError } from './ForbiddenError';
 export { default as InvalidCredentialsError } from './InvalidCredentialsError';
 export { default as ResourceNotFoundError } from './ResourceNotFoundError';
 export { default as ServiceUnavailableError } from './ServiceUnavailableError';
+export { default as TokenError } from './TokenError';
 export { default as UnauthorizedError } from './UnauthorizedError';
 export { default as UnknownError } from './UnknownError';
 export { default as ValidationError } from './ValidationError';

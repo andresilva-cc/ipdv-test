@@ -5,7 +5,7 @@ import container from '../../container';
 class PositionController {
   private static positionService = <PositionService>container.get('PositionService');
 
-  public static async all(_request: Request, response: Response, next: NextFunction) {
+  public static async all(request: Request, response: Response, next: NextFunction) {
     try {
       const positions = await PositionController.positionService.all();
       return response.status(200).send(positions);

@@ -8,6 +8,14 @@ class SequelizeUserRepository extends SequelizeBaseRepository<User> implements U
   constructor() {
     super(User);
   }
+
+  public async findByEmail(email: string): Promise<User | null> {
+    return User.scope('withPassword').findOne({
+      where: {
+        email,
+      },
+    });
+  }
 }
 
 export default SequelizeUserRepository;

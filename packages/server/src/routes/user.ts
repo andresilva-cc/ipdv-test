@@ -1,9 +1,10 @@
 import { Express } from 'express';
+import { TokenMiddleware } from '../middlewares/Auth';
 import { UserController } from '../app/Controllers';
 
 export default (application: Express) => {
-  application.get('/users', UserController.all);
-  application.post('/users', UserController.create);
-  application.patch('/users/:id', UserController.update);
-  application.delete('/users/:id', UserController.delete);
+  application.get('/users', TokenMiddleware, UserController.all);
+  application.post('/users', TokenMiddleware, UserController.create);
+  application.patch('/users/:id', TokenMiddleware, UserController.update);
+  application.delete('/users/:id', TokenMiddleware, UserController.delete);
 };

@@ -16,13 +16,27 @@
           </v-list-item-avatar>
           <v-list-item-content class="pa-0">
             <v-list-item-title class="font-weight-bold white--text">
-              Usuário
+              Teste
             </v-list-item-title>
             <v-list-item-subtitle class="white--text">
-              user@test.com
+              Teste
             </v-list-item-subtitle>
           </v-list-item-content>
         </v-list-item>
+        <template #append>
+          <v-list color="red" tile class="tile pa-0">
+            <v-list-item @click="dialog = true">
+              <v-list-item-action>
+                <v-icon color="white">
+                  mdi-logout
+                </v-icon>
+              </v-list-item-action>
+              <v-list-item-content>
+                <v-list-item-title class="white--text" v-text="$t('auth.logout')" />
+              </v-list-item-content>
+            </v-list-item>
+          </v-list>
+        </template>
       </v-list>
       <v-divider />
       <v-list>
@@ -51,6 +65,25 @@
         <nuxt />
       </v-container>
     </v-main>
+
+    <!-- Logout Dialog -->
+    <v-dialog v-model="dialog" persistent max-width="360">
+      <v-card>
+        <v-card-title class="headline">
+          {{ $t('dialog.logout.title') }}
+        </v-card-title>
+        <v-card-text>{{ $t('dialog.logout.description') }}</v-card-text>
+        <v-card-actions>
+          <v-spacer />
+          <v-btn text :disabled="loading" @click="dialog = false">
+            {{ $t('common.cancel') }}
+          </v-btn>
+          <v-btn color="red" text :disabled="loading" :loading="loading" @click="logout">
+            {{ $t('common.confirm') }}
+          </v-btn>
+        </v-card-actions>
+      </v-card>
+    </v-dialog>
   </v-app>
 </template>
 
@@ -58,6 +91,9 @@
 export default {
   data () {
     return {
+      dialog: false,
+      loading: false,
+
       drawer: false,
       items: [
         {
@@ -87,6 +123,31 @@ export default {
         }
       ]
     }
+  },
+
+  methods: {
+    logout () {
+      try {
+        this.loading = true
+
+        this.$auth.logout()
+        this.$router.push({
+          path: '/login'
+        })
+      } finally {
+        this.loading = false
+      }
+    }
   }
 }
 </script>
+
+<style lang="scss" scoped>
+.user-info {
+  height: 64px;
+}
+
+.tile {
+  border-radius: 0;
+}
+</style>

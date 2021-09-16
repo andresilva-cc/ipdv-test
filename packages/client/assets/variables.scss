@@ -2,3 +2,14 @@
 //
 // The variables you want to modify
 // $font-size-root: 20px;
+
+@import '~vuetify/src/styles/styles.sass';
+
+// Theme variables to use inside components style tags
+$primary: map-get($amber, darken-1);
+$accent: map-get($amber, darken-3);
+$secondary: map-get($blue-grey, lighten-1);
+$info: map-get($blue, base);
+$warning: map-get($amber, base);
+$error: map-get($red, base);
+$success: map-get($green, base);

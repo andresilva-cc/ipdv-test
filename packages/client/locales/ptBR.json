@@ -1,4 +1,12 @@
 {
+  "app": {
+    "name": "IPDV Test"
+  },
+  "auth": {
+    "invalidCredentials": "O e-mail/senha informados estão incorretos, tente novamente.",
+    "login": "Login",
+    "logout":"Logout"
+  },
   "common": {
     "actions": "Ações",
     "cancel": "Cancelar",
@@ -13,6 +21,10 @@
     "delete": {
       "title": "Confirmar exclusão?",
       "description": "Se você confirmar, este registro será excluído permanentemente."
+    },
+    "logout": {
+      "title": "Confirmar logout?",
+      "description": "Se você confirmar, você será desconectado do sistema."
     }
   },
   "field": {

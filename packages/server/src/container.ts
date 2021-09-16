@@ -4,7 +4,7 @@ import {
   SequelizeUserRepository,
 } from './app/Repositories/Implementation';
 import {
-  CostCenterService, DepartmentService, PositionService, UserService,
+  AuthService, CostCenterService, DepartmentService, PositionService, UserService,
 } from './app/Services';
 
 const container = new DependencyContainer();
@@ -16,6 +16,9 @@ container.register('PositionRepository', new SequelizePositionRepository());
 container.register('UserRepository', new SequelizeUserRepository());
 
 // Services
+container.register('AuthService', new AuthService(
+  container.get('UserRepository'),
+));
 container.register('CostCenterService', new CostCenterService(
   container.get('CostCenterRepository'),
 ));

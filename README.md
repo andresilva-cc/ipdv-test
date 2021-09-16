@@ -6,4 +6,4 @@ As instruções para executar o cliente e o servidor encontram-se nos respectivo
 
 `packages/server`
 
-A modelagem do banco de dados encontra-se no diretório `resources`.
+A modelagem do banco de dados encontra-se no diretório `resources/database`.

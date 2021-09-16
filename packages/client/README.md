@@ -1,5 +1,17 @@
 # IPDV Test - Client
 
+## Sobre
+
+Este sistema web foi desenvolvida com Nuxt.js (framework para Vue.js). Além disso, os seguintes `packages` foram utilizados:
+
+- @nuxtjs/auth (módulo de autenticação para Nuxt.js)
+- @nuxtjs/axios (módulo para integrar o Axios ao Nuxt.js)
+- @nuxtjs/i18n (módulo para integrar o plugin de internacionalização do Vue.js no Nuxt.js)
+- vuetify (framework que implementa o Material Design para Vue.js)
+- eslint (formatação e padrão de código)
+
+## Setup e execução
+
 Instale as dependências com:
 
 ```bash

@@ -1,5 +1,23 @@
 # IPDV Test - Server
 
+## Sobre
+
+Esta API foi desenvolvida utilizando como base o meu template [express-api-template](https://github.com/andresilva-cc/express-api-template). Além disso, os seguintes `packages` foram utilizados:
+
+- express (web framework)
+- typescript
+- sequelize (ORM)
+- sequelize-typescript (melhor integração do Sequelize com TypeScript)
+- bcrypt (criptografia de senhas)
+- body-parser (middleware de parse de body)
+- cors (middleware CORS)
+- dotenv (carrega variáveis de ambiente no Node.js)
+- jsonwebtoken (autenticação baseada em token)
+- morgan (middleware de log de requests)
+- eslint (formatação e padrão de código)
+
+## Setup e execução
+
 Instale as dependências com:
 
 ```bash

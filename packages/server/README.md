@@ -58,3 +58,10 @@ npm run start
 ```
 
 Por fim, configure a aplicação cliente para utilizar a URL desta API ou teste a API através do Insomnia (utilizando o export no diretório `resources`).
+
+O login pode ser feito com o usuário teste criado pelo seed:
+
+```
+user@test.com
+test
+```

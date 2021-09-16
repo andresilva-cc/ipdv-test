@@ -2,7 +2,7 @@
 
 ## Sobre
 
-Este sistema web foi desenvolvida com Nuxt.js (framework para Vue.js). Além disso, os seguintes `packages` foram utilizados:
+Este sistema web foi desenvolvido com Nuxt.js (framework para Vue.js). Além disso, os seguintes `packages` foram utilizados:
 
 - @nuxtjs/auth (módulo de autenticação para Nuxt.js)
 - @nuxtjs/axios (módulo para integrar o Axios ao Nuxt.js)
@@ -37,4 +37,11 @@ Ou, em modo de produção:
 ```bash
 npm run build
 npm run start
+```
+
+O login pode ser feito com o usuário teste criado pelo seed da API:
+
+```
+user@test.com
+test
 ```

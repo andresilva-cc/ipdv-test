@@ -1,30 +1,42 @@
-# Express API Template
+# IPDV Test - Server
 
-## About
-
-This repository replaces the [Express-API-Template-JavaScript](https://github.com/andresilva-cc/Express-API-Template-JavaScript) template.
-
-This template is still being worked on, but the goal here is to improve code quality, project architecture, and replace JavaScript by TypeScript.
-
-More will be added later to this README.
-
-## Setup
-
-1. Copy `.env.example` as `.env`
-2. Replace the environment variables as necessary
-3. Install the dependencies with `npm install`
-
-## Execution
+Instale as dependências com:
 
 ```bash
-# run in development mode with hot reload
-$ npm run dev
-
-# build for production and run in production
-$ npm run build
-$ npm run start
+npm install
 ```
 
-## To Do
+Crie uma cópia do arquivo `.env.example` como `.env`:
 
-[Trello board](https://trello.com/b/12gmFXeQ)
+```bash
+cp .env.example .env
+```
+
+Configure as variáveis de ambiente no arquivo `.env`
+
+Execute as migrações do banco de dados:
+
+```bash
+npx sequelize db:migrate
+```
+
+Execute os seeds:
+
+```bash
+npx sequelize db:seed:all
+```
+
+Execute a aplicação em modo de desenvolvimento:
+
+```bash
+npm run dev
+```
+
+Ou, em modo de produção:
+
+```bash
+npm run build
+npm run start
+```
+
+Por fim, configure a aplicação cliente para utilizar a URL desta API ou teste a API através do Insomnia (utilizando o export no diretório `resources`).

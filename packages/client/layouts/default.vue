@@ -16,28 +16,28 @@
           </v-list-item-avatar>
           <v-list-item-content class="pa-0">
             <v-list-item-title class="font-weight-bold white--text">
-              Teste
+              {{ $auth.user.name }}
             </v-list-item-title>
             <v-list-item-subtitle class="white--text">
-              Teste
+              {{ $auth.user.email }}
             </v-list-item-subtitle>
           </v-list-item-content>
         </v-list-item>
-        <template #append>
-          <v-list color="red" tile class="tile pa-0">
-            <v-list-item @click="dialog = true">
-              <v-list-item-action>
-                <v-icon color="white">
-                  mdi-logout
-                </v-icon>
-              </v-list-item-action>
-              <v-list-item-content>
-                <v-list-item-title class="white--text" v-text="$t('auth.logout')" />
-              </v-list-item-content>
-            </v-list-item>
-          </v-list>
-        </template>
       </v-list>
+      <template #append>
+        <v-list color="red" tile class="tile pa-0">
+          <v-list-item @click="dialog = true">
+            <v-list-item-action>
+              <v-icon color="white">
+                mdi-logout
+              </v-icon>
+            </v-list-item-action>
+            <v-list-item-content>
+              <v-list-item-title class="white--text" v-text="$t('auth.logout')" />
+            </v-list-item-content>
+          </v-list-item>
+        </v-list>
+      </template>
       <v-divider />
       <v-list>
         <v-list-item
